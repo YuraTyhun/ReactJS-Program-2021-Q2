@@ -5,8 +5,8 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "jest",
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --config webpack.dev.js"
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +24,10 @@
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "jest": "^27.0.4",
     "mini-css-extract-plugin": "^1.6.0",
@@ -39,8 +42,8 @@
     "webpack-merge": "^5.8.0"
   },
   "jest": {
-		"moduleNameMapper": {
-			"\\.(css|scss)$": "babel-jest"
-		}
-	}
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "babel-jest"
+    }
+  }
 }
