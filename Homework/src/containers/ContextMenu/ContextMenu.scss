@@ -1,0 +1,29 @@
+.movie-context-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    padding-top: 5px;
+    background-color: #232323;
+    border-radius: 2px;
+
+    ul {
+        list-style-type: none;
+    }
+
+    &-item {
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+
+    &-close-btn {
+        align-self: flex-end;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        border: none;
+	    background-color: transparent;
+    }
+}

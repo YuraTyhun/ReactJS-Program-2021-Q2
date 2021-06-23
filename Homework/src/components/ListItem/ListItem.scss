@@ -1,0 +1,15 @@
+.list-item {
+    color: #ffffff;
+    padding: 0 0 14px;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    
+    &:nth-child(1) {
+        border-bottom: 2px solid #f65261;
+    }
+
+    &:hover {
+        color: #f65261;
+    }
+}
