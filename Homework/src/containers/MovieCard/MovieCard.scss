@@ -1,16 +1,23 @@
+@import '../../assets/styles/variables.scss';
+
 .movie-card {
 
     &-container {
         position: relative;
         width: 320px;
         margin: 0 20px 30px;
-        color: #ffffff;
+        color: $white;
     }
 
     &-metadata {
         display: flex;
         justify-content: space-between;
         padding: 15px 2px 7px;
+    }
+
+    &-poster-btn {
+        background-color: transparent;
+        border: none;
     }
 
     &-menu-icon {
@@ -22,7 +29,7 @@
         align-items: center;
         width: 35px;
         height: 35px;
-        background-color: #232323;
+        background-color: $dark-grey;
         border: none;
         border-radius: 50%;
         opacity: 0;

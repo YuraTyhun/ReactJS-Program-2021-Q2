@@ -1,5 +1,7 @@
+@import '../../assets/styles/variables.scss';
+
 .logo {
-    color: #F65261;
+    color: $pink;
     font-size: 26px;
     .netflix {
         font-weight: 600;

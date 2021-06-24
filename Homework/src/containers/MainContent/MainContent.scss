@@ -1,4 +1,6 @@
+@import '../../assets/styles/variables.scss';
+
 .main-content {
-    background-color: #232323;
+    background-color: $dark-grey;
     padding: 5px 50px;
 }

@@ -1,6 +1,8 @@
+@import '../../assets/styles/variables.scss';
+
 .footer-container {
     display: flex;
     justify-content: center;
-    background-color: #424242;
+    background-color: $medium-grey;
     padding: 15px 0;
 }
