@@ -1,0 +1,10 @@
+@import '../../assets/styles/variables.scss';
+
+.results-menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $medium-grey;
+    padding-top: 15px;
+    height: 50px;
+}

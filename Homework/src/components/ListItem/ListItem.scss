@@ -1,0 +1,17 @@
+@import '../../assets/styles/variables.scss';
+
+.list-item {
+    color: $white;
+    padding: 0 0 14px;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    
+    &:nth-child(1) {
+        border-bottom: 2px solid $pink;
+    }
+
+    &:hover {
+        color: $pink;
+    }
+}

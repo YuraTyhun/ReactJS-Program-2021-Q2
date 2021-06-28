@@ -1,0 +1,40 @@
+@import '../../assets/styles/variables.scss';
+
+.select-sort {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    min-width: 170px;
+    padding: 5px 7px;
+    margin-left: 20px;
+
+    select {
+        appearance: none;
+        background: transparent;
+        color: $white;
+        border: none;
+        font-size: 18px;
+        width: 100%;
+        outline: none;
+        cursor: pointer;
+        padding-right: 20px;
+        grid-area: select;
+    }
+    
+    option {
+        color: $dark-grey;
+        cursor: pointer;
+    }
+    
+    &::after {
+        content: "";
+        width: 10px;
+        height: 6px;
+        background-color: $pink;
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+        grid-area: select;
+        justify-self: end;
+    }
+}

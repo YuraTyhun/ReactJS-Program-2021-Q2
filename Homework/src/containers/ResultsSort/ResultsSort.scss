@@ -1,0 +1,15 @@
+@import '../../assets/styles/variables.scss';
+
+.results-sort-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+
+    .sortby-label {
+        font-size: 18px;
+        color: $white;
+        opacity: 0.3;
+        white-space: nowrap;
+        cursor: default;
+    }
+}

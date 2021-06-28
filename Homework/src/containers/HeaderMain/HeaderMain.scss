@@ -1,0 +1,15 @@
+@import '../../assets/styles/variables.scss';
+
+.header-main-container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 70px 120px;
+
+    .main-title {
+        margin-bottom: 25px;
+        color: $white;
+        font-weight: 300;
+        font-size: 35px;
+        letter-spacing: 2px;
+    }
+}
