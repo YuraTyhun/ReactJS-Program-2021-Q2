@@ -6,17 +6,33 @@ import './ContextMenu.scss';
 import Button from '../../components/Button';
 import CloseIcon from '../../assets/images/close.svg';
 
-const ContextMenu = ({ showContextMenu, closeContextMenu }) => showContextMenu && (
-    <div className="movie-context-menu">
-        <Button className="movie-context-menu-close-btn" onClick={closeContextMenu}>
-            <img src={CloseIcon} alt="close" />
-        </Button>
-        <ul>
-            <li className="movie-context-menu-item">Edit</li>
-            <li className="movie-context-menu-item">Delete</li>
-        </ul>
-    </div>
-);
+const ContextMenu = ({showContextMenu, closeContextMenu, showDeleteModal, showEditModal }) => {
+
+    return showContextMenu && (
+        <>
+            <div className="movie-context-menu">
+                <Button className="movie-context-menu-close-btn" onClick={closeContextMenu}>
+                    <img src={CloseIcon} alt="close" />
+                </Button>
+                <ul>
+                    <li 
+                        className="movie-context-menu-item"
+                        onClick={showEditModal}
+                    >
+                        Edit
+                    </li>
+                    <li
+                        className="movie-context-menu-item"
+                        onClick={showDeleteModal}
+                    >
+                        Delete
+                    </li>
+                </ul>
+            </div>
+        </>
+
+    );
+}
 
 ContextMenu.propTypes = {
     showContextMenu: PropTypes.bool.isRequired,
