@@ -23,6 +23,7 @@ const MultipleSelect = ({ fieldName, formik, label }) => {
                 name={fieldName}
                 id={fieldName}
                 options={genres}
+                value={formik.values.genres}
                 className="form-input-field"
                 disableCloseOnSelect
                 getOptionLabel={(name) => name}
@@ -42,7 +43,7 @@ const MultipleSelect = ({ fieldName, formik, label }) => {
                     formik.setFieldValue('genres', value);
                 }}
                 renderInput={(params) => (
-                    <TextField {...params} variant="outlined" name={fieldName} placeholder="Select genre" />
+                    <TextField {...params} variant="outlined" placeholder="Select genre" />
                 )}
             />
         </div>

@@ -14,7 +14,7 @@ const AddMovie = ({ modalTitle }) => {
         posterUrl: '',
         genres: [],
         overview: '',
-        runtime: null
+        runtime: ''
     };
 
     const submitForm = (values) => {
