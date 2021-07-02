@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ResultsSort.scss';
-
 import Select from '../../components/Select';
+
+import './ResultsSort.scss';
 
 const sortBy = [
     { id: 1, value: 'release_date', label: 'RELEASE DATE' },

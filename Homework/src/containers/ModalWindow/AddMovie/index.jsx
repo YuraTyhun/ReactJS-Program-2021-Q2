@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import MovieForm from '../../MovieForm';
 
 const AddMovie = ({ modalTitle }) => {
-    const activeModal = useSelector((state) => state.movie.activeModal);
+    const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
 
     const initialValues = {
         title: '',

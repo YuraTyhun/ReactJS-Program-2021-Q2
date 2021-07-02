@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './MainContent.scss';
-
 import ResultsMenu from '../ResultsMenu';
 import ResultsCount from '../ResultsCount';
 import MoviesList from '../MoviesList';
+
+import './MainContent.scss';
 
 const MainContent = () => (
     <main className="main-content">

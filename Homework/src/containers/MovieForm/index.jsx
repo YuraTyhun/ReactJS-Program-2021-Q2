@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './MovieForm.scss';
-
 import FormInput from '../FormInput';
 import Button from '../../components/Button';
 import MultipleSelect from '../../components/MultipleSelect';
+
+import './MovieForm.scss';
 
 const MovieForm = ({ formik }) => {
     return (

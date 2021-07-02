@@ -1,14 +1,14 @@
-import * as actionTypes from './actionTypes';
+import { OPEN_MODAL, CLOSE_MODAL } from './actionTypes';
 
 export const openModal = (activeModal, activeMovie) => {
     return ({
-        type: actionTypes.OPEN_MODAL,
-        payload: {activeModal, activeMovie}
+        type: OPEN_MODAL,
+        payload: { activeModal, activeMovie }
     })
 }
 
 export const closeModal = () => {
     return ({
-        type: actionTypes.CLOSE_MODAL
+        type: CLOSE_MODAL
     })
 }

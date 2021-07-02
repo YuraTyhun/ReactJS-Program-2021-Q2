@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
@@ -14,6 +13,10 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
 const MultipleSelect = ({ fieldName, formik, label }) => {
+
+    const handleChange = (e, value) => {
+        formik.setFieldValue(fieldName, value);
+    }
 
     return (
         <div className="form-input-container">
@@ -39,9 +42,7 @@ const MultipleSelect = ({ fieldName, formik, label }) => {
                         {genre}
                     </React.Fragment>
                 )}
-                onChange={(e, value) => {
-                    formik.setFieldValue('genres', value);
-                }}
+                onChange={handleChange}
                 renderInput={(params) => (
                     <TextField {...params} variant="outlined" placeholder="Select genre" />
                 )}

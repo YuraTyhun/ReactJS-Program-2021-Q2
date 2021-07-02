@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import classNames from 'classnames';
 
 import { closeModal } from '../../store/actions';
 
@@ -12,10 +13,14 @@ import CloseIcon from '../../assets/images/close.svg';
 
 import './ModalWindow.scss';
 
-
 const ModalWindow = () => {
-    const activeModal = useSelector((state) => state.movie.activeModal);
-    const activeMovie = useSelector((state) => state.movie.activeMovie);
+    const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
+    const activeMovie = useSelector(({movie: {activeMovie}}) => activeMovie);
+
+    const containerClasses = classNames({
+        'modal-window-container': true,
+        'active-modal-height': activeModal === 'delete'
+    })
 
     const dispatch = useDispatch();
 
@@ -24,7 +29,7 @@ const ModalWindow = () => {
     }
 
     return activeModal && (
-        <div className="modal-window-container" style={{height: activeModal === 'delete' ? '100vh' : 'unset'}}>
+        <div className={containerClasses}>
             <div className="blur-filter">
                 <Logo />
                 <div className="modal-window-wrapper">

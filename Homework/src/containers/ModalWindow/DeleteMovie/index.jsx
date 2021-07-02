@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Button from '../../../components/Button';
 
 const DeleteMovie = ({ title, movieId }) => {
-    const activeModal = useSelector(state => state.movie.activeModal);
+    const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
 
     return activeModal === 'delete' && (
         <>

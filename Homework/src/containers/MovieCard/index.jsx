@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 
-import './MovieCard.scss';
-
 import { openModal } from '../../store/actions';
 
 import Button from '../../components/Button';
@@ -14,6 +12,8 @@ import MovieGenres from '../../components/MovieGenres';
 import ContextMenuIcon from '../../assets/images/context-menu.svg';
 import ContextMenu from '../ContextMenu';
 
+import './MovieCard.scss';
+
 const MovieCard = ({movieData, movieData: { id, title, posterUrl, releaseDate, genres, overview, runtime } }) => {
     const [showContextMenu, setShowContextMenu] = useState(false);
     const dispatch = useDispatch();
@@ -22,12 +22,8 @@ const MovieCard = ({movieData, movieData: { id, title, posterUrl, releaseDate, g
         setShowContextMenu(showContextMenu => !showContextMenu);
     }
 
-    const showDeleteModal = () => {
-        dispatch(openModal('delete', movieData));
-    }
-
-    const showEditModal = () => {
-        dispatch(openModal('edit', movieData));
+    const showModal = (action) => {
+        dispatch(openModal(action, movieData));
     };
 
     return (
@@ -46,8 +42,7 @@ const MovieCard = ({movieData, movieData: { id, title, posterUrl, releaseDate, g
             <ContextMenu
                 showContextMenu={showContextMenu} 
                 closeContextMenu={onToggleMenu}
-                showDeleteModal={showDeleteModal} 
-                showEditModal={showEditModal} 
+                showModal={showModal} 
             />
         </div>
     );

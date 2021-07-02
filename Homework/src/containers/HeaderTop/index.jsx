@@ -1,12 +1,11 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-import './HeaderTop.scss';
-
-import { openModal } from '../../store/actions';
-
 import Button from '../../components/Button';
 import Logo from '../../components/Logo';
+import { openModal } from '../../store/actions';
+
+import './HeaderTop.scss';
 
 const HeaderTop = () => {
     const dispatch = useDispatch();

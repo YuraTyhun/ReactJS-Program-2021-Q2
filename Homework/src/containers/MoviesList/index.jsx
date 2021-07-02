@@ -1,13 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import MovieCard from '../MovieCard';
 
 import './MoviesList.scss';
 
-import MovieCard from '../MovieCard';
-import { useSelector } from 'react-redux';
-
 const MoviesList = () => {
-    const mockMovies = useSelector(state => state.movie.movies);
-    const activeModal = useSelector(state => state.movie.activeModal);
+    const mockMovies = useSelector(({movie: {movies}}) => movies);
+    const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
 
     return !activeModal && (
         <div className="movies-list-container">

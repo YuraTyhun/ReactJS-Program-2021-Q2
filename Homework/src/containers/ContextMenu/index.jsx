@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './ContextMenu.scss';
-
 import Button from '../../components/Button';
 import CloseIcon from '../../assets/images/close.svg';
 
-const ContextMenu = ({showContextMenu, closeContextMenu, showDeleteModal, showEditModal }) => {
+import './ContextMenu.scss';
+
+const ContextMenu = ({showContextMenu, closeContextMenu, showModal }) => {
 
     return showContextMenu && (
         <>
@@ -17,13 +17,13 @@ const ContextMenu = ({showContextMenu, closeContextMenu, showDeleteModal, showEd
                 <ul>
                     <li 
                         className="movie-context-menu-item"
-                        onClick={showEditModal}
+                        onClick={() => showModal('edit')}
                     >
                         Edit
                     </li>
                     <li
                         className="movie-context-menu-item"
-                        onClick={showDeleteModal}
+                        onClick={() => showModal('delete')}
                     >
                         Delete
                     </li>

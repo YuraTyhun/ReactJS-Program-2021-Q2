@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions/actionTypes';
+import { OPEN_MODAL, CLOSE_MODAL } from '../actions/actionTypes';
 
 export const initialState = {
     activeMovie: null,
@@ -63,13 +63,13 @@ export const initialState = {
 
 const movie = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.OPEN_MODAL:
+        case OPEN_MODAL:
             return {
                 ...state,
                 activeModal: action.payload.activeModal,
                 activeMovie: action.payload.activeMovie
             }
-        case actionTypes.CLOSE_MODAL:
+        case CLOSE_MODAL:
             return {
                 ...state,
                 activeModal: false,

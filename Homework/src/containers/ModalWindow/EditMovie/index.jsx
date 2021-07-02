@@ -7,7 +7,7 @@ import MovieForm from '../../MovieForm';
 
 const EditMovie = ({ modalTitle, movie: { id, title, releaseDate, posterUrl, genres, overview, runtime } }) => {
 
-    const activeModal = useSelector((state) => state.movie.activeModal);
+    const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
 
     const initialValues = {
         id,
