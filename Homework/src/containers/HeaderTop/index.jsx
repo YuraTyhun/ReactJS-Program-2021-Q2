@@ -1,15 +1,25 @@
 import React from 'react';
-
-import './HeaderTop.scss';
+import {useDispatch} from 'react-redux';
 
 import Button from '../../components/Button';
 import Logo from '../../components/Logo';
+import { openModal } from '../../store/actions';
 
-const HeaderTop = () => (
-    <div className='header-top-container'>
-        <Logo />
-        <Button className="add-movie-btn" title='+ ADD MOVIE' />
-    </div>
-);
+import './HeaderTop.scss';
+
+const HeaderTop = () => {
+    const dispatch = useDispatch();
+
+    const showAddModal = () => {
+        dispatch(openModal('add'));
+    };
+
+    return (
+        <div className='header-top-container'>
+            <Logo />
+            <Button className="add-movie-btn" title='+ ADD MOVIE' onClick={showAddModal}/>
+        </div>
+    );
+}
 
 export default HeaderTop;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ResultsFilter.scss';
-
 import ListItem from '../../components/ListItem';
+
+import './ResultsFilter.scss';
 
 const genres = [
     { id: 1, value: '', title: 'ALL' },

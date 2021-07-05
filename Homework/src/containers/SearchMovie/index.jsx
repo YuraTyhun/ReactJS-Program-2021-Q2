@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './Search.scss';
-
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+
+import './Search.scss';
 
 const SearchMovie = () => (
     <div className="search-movie-container">

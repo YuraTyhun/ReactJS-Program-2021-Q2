@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './HeaderMain.scss';
-
 import SearchMovie from '../SearchMovie';
+
+import './HeaderMain.scss';
 
 const HeaderMain = () => (
   <div className="header-main-container">

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './ResultsMenu.scss';
-
 import ResultsFilter from '../ResultsFilter';
 import ResultsSort from '../ResultsSort';
+
+import './ResultsMenu.scss';
 
 const ResultsMenu = () => (
     <div className="results-menu-container">
