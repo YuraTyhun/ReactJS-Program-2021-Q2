@@ -15,4 +15,15 @@
 		cursor: pointer;
         outline: none;
 	}
+
+	.close-movie-details {
+		display: flex;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+
+		& img {
+			height: 25px;
+		}
+	}
 }

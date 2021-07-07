@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 
-import { openModal } from '../../store/actions';
+import { openModal, showMovieDetails } from '../../store/actions';
 
 import Button from '../../components/Button';
 import MoviePoster from '../../components/MoviePoster';
@@ -14,7 +14,7 @@ import ContextMenu from '../ContextMenu';
 
 import './MovieCard.scss';
 
-const MovieCard = ({movieData, movieData: { id, title, posterUrl, releaseDate, genres, overview, runtime } }) => {
+const MovieCard = ({movieData, movieData: { title, posterUrl, releaseDate, genres } }) => {
     const [showContextMenu, setShowContextMenu] = useState(false);
     const dispatch = useDispatch();
 
@@ -22,13 +22,18 @@ const MovieCard = ({movieData, movieData: { id, title, posterUrl, releaseDate, g
         setShowContextMenu(showContextMenu => !showContextMenu);
     }
 
+    const handleShowMovieDetails = useCallback(() => {
+        dispatch(showMovieDetails(movieData));
+        window.scrollTo(0, 0);
+    }, [dispatch, movieData]);
+
     const showModal = (action) => {
         dispatch(openModal(action, movieData));
     };
 
     return (
         <div className="movie-card-container" onMouseLeave={() => setShowContextMenu(false)}>
-            <Button className='movie-card-poster-btn'>
+            <Button className='movie-card-poster-btn' onClick={handleShowMovieDetails}>
                 <MoviePoster path={posterUrl} title={title} />
             </Button>
             <div className="movie-card-metadata">
@@ -54,9 +59,7 @@ MovieCard.propTypes = {
         title: PropTypes.string,
         posterUrl: PropTypes.string,
         releaseDate: PropTypes.string,
-        genres: PropTypes.arrayOf(PropTypes.string),
-        overview: PropTypes.string,
-        runtime: PropTypes.number
+        genres: PropTypes.arrayOf(PropTypes.string)
     })
 };
 

@@ -6,6 +6,7 @@ import Footer from '../Footer';
 import MainContent from '../MainContent';
 import ErrorBoundary from '../ErrorBoundary';
 import ModalWindow from '../ModalWindow';
+import DetailsPage from '../DetailsPage';
 
 import store from '../../store';
 
@@ -17,6 +18,7 @@ const App = () => {
 		<Provider store={store}>
 			<ErrorBoundary>
 				<Header />
+				<DetailsPage />
 				<MainContent />
 				<ModalWindow />
 				<Footer />
