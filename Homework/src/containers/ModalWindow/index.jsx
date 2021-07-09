@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
@@ -17,16 +17,29 @@ const ModalWindow = () => {
     const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
     const activeMovie = useSelector(({movie: {activeMovie}}) => activeMovie);
 
-    const containerClasses = classNames({
-        'modal-window-container': true,
-        'active-modal-height': activeModal === 'delete'
-    })
-
     const dispatch = useDispatch();
 
     const handleCloseModal = () => {
         dispatch(closeModal());
     }
+
+    const handleKeydownEvent = useCallback(e => {
+        e.key === 'Escape' && dispatch(closeModal())
+    }, [dispatch]);
+
+    useEffect(() => {
+        if(activeModal) {
+            window.addEventListener('keydown', handleKeydownEvent);
+        }
+        return () => {
+            window.removeEventListener('keydown', handleKeydownEvent);
+        }
+    }, [activeModal, handleKeydownEvent]);
+
+    const containerClasses = classNames({
+        'modal-window-container': true,
+        'active-modal-height': activeModal === 'delete'
+    });
 
     return activeModal && (
         <div className={containerClasses}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import HeaderTop from '../HeaderTop';
 import HeaderMain from '../HeaderMain';
@@ -6,8 +7,9 @@ import HeaderMain from '../HeaderMain';
 import './Header.scss';
 
 const Header = () => {
+  const detailsMovie = useSelector(({movie: {detailsMovie}}) => detailsMovie);
 
-  return (
+  return !detailsMovie && (
   <header className='header-container'>
     <div className='blur-filter'>
       <HeaderTop />

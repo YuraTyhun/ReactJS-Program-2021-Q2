@@ -7,11 +7,11 @@
     font-size: 18px;
     cursor: pointer;
     
-    &:nth-child(1) {
-        border-bottom: 2px solid $pink;
-    }
-
     &:hover {
         color: $pink;
     }
+}
+
+.active {
+    border-bottom: 2px solid $pink;
 }
