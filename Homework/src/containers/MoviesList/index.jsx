@@ -7,9 +7,9 @@ import { sortList } from '../../util';
 import './MoviesList.scss';
 
 const MoviesList = () => {
-    const filter = useSelector(({movie: {filter}}) => filter);
+    const activefilter = useSelector(({movie: {filter}}) => filter);
     const mockMovies = useSelector(({movie: {movies}}) => {
-        return filter ? movies.filter(movie => movie.genres.includes(filter)) : movies
+        return activefilter ? movies.filter(({genres}) => genres.includes(activefilter)) : movies
     });
     const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
     const sortBy = useSelector(({movie: {sortBy}}) => sortBy);

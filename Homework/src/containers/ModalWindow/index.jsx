@@ -23,7 +23,9 @@ const ModalWindow = () => {
         dispatch(closeModal());
     }
 
-    const handleKeydownEvent = useCallback(e => e.key === 'Escape' && dispatch(closeModal()),[dispatch]);
+    const handleKeydownEvent = useCallback(e => {
+        e.key === 'Escape' && dispatch(closeModal())
+    }, [dispatch]);
 
     useEffect(() => {
         if(activeModal) {

@@ -24,7 +24,7 @@ const MovieCard = ({movieData, movieData: { title, posterUrl, releaseDate, genre
 
     const handleShowMovieDetails = useCallback(() => {
         dispatch(showMovieDetails(movieData));
-        window.scrollTo(0, 0);
+        window.scrollTo({top: 0, behavior: 'smooth'});
     }, [dispatch, movieData]);
 
     const showModal = (action) => {
