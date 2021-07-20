@@ -1,16 +1,23 @@
 import React from 'react';
 import { Field } from 'formik';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const FormInput = ({ label, name, type, placeholder }) => {
+const FormInput = ({ label, name, type, placeholder, readOnly, isIdField }) => {
+    const itemClasses = classNames({
+        'form-input-field': true,
+        'id-field': isIdField
+    });
+
     return (
         <div className="form-input-container">
             <label htmlFor={name} className="form-input-label">{label}</label>
             <Field
-                className="form-input-field"
+                className={itemClasses}
                 name={name}
                 type={type}
-                placeholder={placeholder} />
+                placeholder={placeholder}
+                readOnly={readOnly} />
         </div>
 
     )
@@ -26,7 +33,7 @@ FormInput.propTypes = {
 FormInput.defaultProps = {
     label: '',
     type: 'text',
-    placeholder: '',
+    placeholder: ''
 };
 
 export default FormInput;

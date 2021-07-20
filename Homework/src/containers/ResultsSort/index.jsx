@@ -3,14 +3,9 @@ import { useDispatch } from 'react-redux';
 
 import Select from '../../components/Select';
 import { setSortBy } from '../../store/actions';
+import { sortBy } from '../../util/constants';
 
 import './ResultsSort.scss';
-
-const sortBy = [
-    { id: 1, value: 'releaseDate', label: 'RELEASE DATE' },
-    { id: 2, value: 'runtime', label: 'RUNTIME' },
-    { id: 3, value: 'rating', label: 'RATING' },
-];
 
 const ResultsSort = () => {
     const dispatch = useDispatch();

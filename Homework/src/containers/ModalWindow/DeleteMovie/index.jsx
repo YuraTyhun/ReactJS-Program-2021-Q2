@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useSelector } from 'react-redux';
-
+import { deleteMovie } from '../../../store/actions';
 import Button from '../../../components/Button';
 
 const DeleteMovie = ({ title, movieId }) => {
     const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
+    const dispatch = useDispatch();
+
+    const onConfirm = () => {
+        dispatch(deleteMovie(movieId));
+    }
 
     return activeModal === 'delete' && (
         <>
@@ -15,10 +21,16 @@ const DeleteMovie = ({ title, movieId }) => {
                 <Button
                     className="modal-window-action-btn"
                     title="CONFIRM"
+                    onClick={onConfirm}
                 />
             </div>
         </>
     )
+};
+
+DeleteMovie.propTypes = {
+    title: PropTypes.string.isRequired,
+    movieId: PropTypes.number.isRequired
 };
 
 export default DeleteMovie;

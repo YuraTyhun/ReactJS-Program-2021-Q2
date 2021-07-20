@@ -54,7 +54,7 @@ const ModalWindow = () => {
                     </Button>
                     <div className="modal-window-body">
                         {activeMovie && <DeleteMovie title="DELETE MOVIE" movieId={activeMovie.id} />}
-                        {activeMovie && <EditMovie modalTitle="EDIT MOVIE" activeMovie={activeMovie} movie={activeMovie} /> }
+                        {activeMovie && <EditMovie modalTitle="EDIT MOVIE" movie={activeMovie} /> }
                         <AddMovie modalTitle="ADD MOVIE"/>
                     </div>
                 </div>

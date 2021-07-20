@@ -1,10 +1,13 @@
-import { 
-    OPEN_MODAL, 
-    CLOSE_MODAL, 
-    SHOW_MOVIE_DETAILS, 
+import axios from 'axios';
+
+import {
+    OPEN_MODAL,
+    CLOSE_MODAL,
+    SHOW_MOVIE_DETAILS,
     SET_SORT_BY,
     SET_FILTER,
-    CLOSE_MOVIE_DETAILS 
+    CLOSE_MOVIE_DETAILS,
+    GET_MOVIES_SUCCESS
 } from './actionTypes';
 
 export const openModal = (activeModal, activeMovie) => {
@@ -45,4 +48,60 @@ export const setFilter = (filter) => {
         type: SET_FILTER,
         payload: filter
     })
+}
+
+export const getMoviesSuccess = (movies) => ({
+    type: GET_MOVIES_SUCCESS,
+    payload: movies
+});
+
+export const getMovies = () => (dispatch) => {
+    return axios
+        .get('http://localhost:4000/movies?filter=&limit=30&sortBy=release_date&sortOrder=desc&search=&searchBy=title')
+        .then(response => {
+            console.log(response);
+            dispatch(getMoviesSuccess(response.data))
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+
+export const addMovie = (data) => (dispatch) => {
+    console.log(data);
+    return axios
+        .post('http://localhost:4000/movies', data)
+        .then(() => {
+            dispatch(closeModal());
+            dispatch(getMovies());
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+
+export const editMovie = (data) => (dispatch) => {
+    console.log(data);
+    return axios
+        .put('http://localhost:4000/movies', data)
+        .then(() => {
+            dispatch(closeModal());
+            dispatch(getMovies());
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+
+export const deleteMovie = (id) => (dispatch) => {
+    console.log(id);
+    return axios
+        .delete(`http://localhost:4000/movies/${id}`)
+        .then(() => {
+            dispatch(closeModal());
+            dispatch(getMovies());
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
 }

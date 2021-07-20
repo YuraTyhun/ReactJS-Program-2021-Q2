@@ -6,11 +6,10 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
-const genres = ['Action', 'Comedy', 'Crime', 'Drama', 'Music'];
+import { genres } from '../../util/constants';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
-
 
 const MultipleSelect = ({ fieldName, formik, label }) => {
 
