@@ -1,24 +1,36 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { addMovie } from '../../../store/actions';
+import { convertData } from '../../../util';
 import MovieForm from '../../MovieForm';
 
 const AddMovie = ({ modalTitle }) => {
     const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
+    const dispatch = useDispatch();
 
     const initialValues = {
         title: '',
-        releaseDate: '',
-        posterUrl: '',
+        release_date: '',
+        poster_path: '',
         genres: [],
         overview: '',
-        runtime: ''
+        runtime: 0,
+        budget: 0,
+        revenue: 0,
+        tagline: '',
+        vote_average: 0,
+        vote_count: 0
     };
 
     const submitForm = (values) => {
-        console.log(values);
+        const data = {
+            ...values,
+            ...convertData(values)
+        }
+        dispatch(addMovie(data));
     }
 
     return activeModal === 'add' && (

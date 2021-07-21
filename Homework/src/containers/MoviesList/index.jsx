@@ -8,17 +8,17 @@ import './MoviesList.scss';
 
 const MoviesList = () => {
     const activefilter = useSelector(({movie: {filter}}) => filter);
-    const mockMovies = useSelector(({movie: {movies}}) => {
+    const fetchedMovies = useSelector(({movie: {movies}}) => {
         return activefilter ? movies.filter(({genres}) => genres.includes(activefilter)) : movies
     });
     const activeModal = useSelector(({movie: {activeModal}}) => activeModal);
     const sortBy = useSelector(({movie: {sortBy}}) => sortBy);
     
-    const sortedMockMovies = sortList(mockMovies, sortBy);
+    const sortedMovies = sortList(fetchedMovies, sortBy);
     
     return !activeModal && (
         <div className="movies-list-container">
-            {sortedMockMovies.map(movieItem => (
+            {sortedMovies.map(movieItem => (
                 <MovieCard movieData={movieItem} key={movieItem.id} />
             ))}
         </div>
