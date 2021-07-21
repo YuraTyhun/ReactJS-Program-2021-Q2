@@ -17,17 +17,19 @@ const MovieDetails = () => {
         overview 
     } = useSelector(({ movie: { detailsMovie } }) => detailsMovie);
 
+    const releaseDate = new Date(release_date).getFullYear();
+
     return (
         <div className="movie-details-container">
             <MoviePoster path={poster_path} />
             <div className="movie-details-main">
                 <div className="movie-details-header">
                     <span className="movie-details-header-title">{title}</span>
-                    <span className="movie-details-header-rating">{(vote_average ? vote_average : 0).toFixed(1)}</span>
+                    <span className="movie-details-header-rating">{(vote_average || 0).toFixed(1)}</span>
                 </div>
                 <MovieGenres genres={genres} />
                 <div className="movie-details-release-and-runtime">
-                    <div>{new Date(release_date).getFullYear()}</div>
+                    <div>{releaseDate}</div>
                     <div>{runtime ? runtime + 'min' : ''}</div>
                 </div>
                 <div className="movie-details-overview">{overview}</div>

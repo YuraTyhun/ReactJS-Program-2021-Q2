@@ -31,8 +31,12 @@ const MovieCard = ({movieData, movieData: { title, poster_path, release_date, ge
         dispatch(openModal(action, movieData));
     };
 
+    const handleMouseLeave = () => {
+        setShowContextMenu(false);
+    }
+
     return (
-        <div className="movie-card-container" onMouseLeave={() => setShowContextMenu(false)}>
+        <div className="movie-card-container" onMouseLeave={handleMouseLeave}>
             <Button className='movie-card-poster-btn' onClick={handleShowMovieDetails}>
                 <MoviePoster path={poster_path} title={title} />
             </Button>

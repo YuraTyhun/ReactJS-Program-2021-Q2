@@ -1,8 +1,8 @@
 import emptyImage from '../assets/images/noimg.jpg';
 
 export const sortList = (arr = [], sortBy) => {
-    return sortBy === 'releaseDate' ?
-        arr.sort((a,b) => new Date(b[sortBy]).getFullYear() - new Date(a[sortBy]).getFullYear()) :
+    return sortBy === 'release_date' ?
+        arr.sort((a,b) => getYear(b[sortBy]) - getYear(a[sortBy])) :
         arr.sort((a,b) => b[sortBy] - a[sortBy]);  
 }
 
@@ -12,7 +12,7 @@ export const handleImgError = (event) => {
 
 export const convertData = (movie) => {
     return {
-        poster_path: movie.poster_path ? movie.poster_path : emptyImage,
+        poster_path: movie.poster_path || emptyImage,
         runtime: Number(movie.runtime),
         budget: Number(movie.budget),
         revenue: Number(movie.revenue),
@@ -20,3 +20,5 @@ export const convertData = (movie) => {
         vote_count: Number(movie.vote_count)
     }
 }
+
+const getYear = (date) => new Date(date).getFullYear(); 

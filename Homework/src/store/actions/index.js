@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { BASE_URL } from '../../util/constants';
+
 import {
     OPEN_MODAL,
     CLOSE_MODAL,
@@ -70,7 +72,7 @@ export const getMovies = () => (dispatch) => {
 export const addMovie = (data) => (dispatch) => {
     console.log(data);
     return axios
-        .post('http://localhost:4000/movies', data)
+        .post(BASE_URL, data)
         .then(() => {
             dispatch(closeModal());
             dispatch(getMovies());
@@ -83,7 +85,7 @@ export const addMovie = (data) => (dispatch) => {
 export const editMovie = (data) => (dispatch) => {
     console.log(data);
     return axios
-        .put('http://localhost:4000/movies', data)
+        .put(BASE_URL, data)
         .then(() => {
             dispatch(closeModal());
             dispatch(getMovies());
@@ -96,7 +98,7 @@ export const editMovie = (data) => (dispatch) => {
 export const deleteMovie = (id) => (dispatch) => {
     console.log(id);
     return axios
-        .delete(`http://localhost:4000/movies/${id}`)
+        .delete(`${BASE_URL}/${id}`)
         .then(() => {
             dispatch(closeModal());
             dispatch(getMovies());
