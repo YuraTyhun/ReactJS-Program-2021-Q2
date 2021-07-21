@@ -59,7 +59,7 @@ export const getMoviesSuccess = (movies) => ({
 
 export const getMovies = () => (dispatch) => {
     return axios
-        .get('http://localhost:4000/movies?filter=&limit=30&sortBy=release_date&sortOrder=desc&search=&searchBy=title')
+        .get(`${BASE_URL}?filter=&limit=30&sortBy=release_date&sortOrder=desc&search=&searchBy=title`)
         .then(response => {
             console.log(response);
             dispatch(getMoviesSuccess(response.data))
