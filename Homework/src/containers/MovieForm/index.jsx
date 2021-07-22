@@ -13,12 +13,10 @@ const MovieForm = ({ formik, isEditMode }) => {
         <>
             {isEditMode && <FormInput label="MOVIE ID" name="id" isIdField readOnly/>}
             {formInputsList.map(input => {
-                if(input.type) {
-                    return <FormInput key={input.id} label={input.label} name={input.name} type={input.type} placeholder={input.placeholder}/>
-                } else if(input.fieldName) {
+                if(input.fieldName) {
                    return <MultipleSelect key={input.id} label={input.label} fieldName={input.fieldName} formik={formik}/>
                 }
-                return <FormInput key={input.id} label={input.label} name={input.name} placeholder={input.placeholder}/>
+                return <FormInput key={input.id} label={input.label} name={input.name} type={input.type} placeholder={input.placeholder}/>
             })}
             <div className="modal-window-action">
                 <Button

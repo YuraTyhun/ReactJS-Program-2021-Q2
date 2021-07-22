@@ -32,7 +32,6 @@ FormInput.propTypes = {
 
 FormInput.defaultProps = {
     label: '',
-    type: 'text',
     placeholder: ''
 };
 
