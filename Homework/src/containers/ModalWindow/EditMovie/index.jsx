@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { editMovie } from '../../../store/actions';
-import { convertData } from '../../../util';
+import { convertData, setValidation } from '../../../util';
 import MovieForm from '../../MovieForm';
 
 const EditMovie = ({ 
@@ -44,7 +44,7 @@ const EditMovie = ({
     }
 
     return activeModal === 'edit' && (
-        <Formik initialValues={initialValues} onSubmit={submitForm}>
+        <Formik initialValues={initialValues} onSubmit={submitForm} validationSchema={setValidation()}>
             {(formik) => (
                 <Form>
                     <h1 className="modal-window-title">{modalTitle}</h1>

@@ -16,7 +16,13 @@ const MovieForm = ({ formik, isEditMode }) => {
                 if(input.fieldName) {
                    return <MultipleSelect key={input.id} label={input.label} fieldName={input.fieldName} formik={formik}/>
                 }
-                return <FormInput key={input.id} label={input.label} name={input.name} type={input.type} placeholder={input.placeholder}/>
+                return <FormInput 
+                    key={input.id} 
+                    label={input.label} 
+                    name={input.name} 
+                    type={input.type} 
+                    placeholder={input.placeholder}
+                    error={formik.errors[input.name]}/>
             })}
             <div className="modal-window-action">
                 <Button
@@ -28,6 +34,7 @@ const MovieForm = ({ formik, isEditMode }) => {
                     type="submit"
                     className="modal-window-action-btn"
                     title="SAVE"
+                    disabled={!formik.isValid}
                 />
             </div>
         </>
