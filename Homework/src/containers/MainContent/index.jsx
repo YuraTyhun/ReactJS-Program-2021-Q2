@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import ResultsMenu from '../ResultsMenu';
-import ResultsCount from '../ResultsCount';
+import ResultsMenu from '../../components/ResultsMenu';
+import ResultsCount from '../../components/ResultsCount';
 import MoviesList from '../MoviesList';
 import { getMovies } from '../../store/actions';
 

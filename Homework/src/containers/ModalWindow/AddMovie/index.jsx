@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { addMovie } from '../../../store/actions';
 import { convertData, setValidation } from '../../../util';
-import MovieForm from '../../MovieForm';
+import MovieForm from '../../../components/MovieForm';
 
 const AddMovie = ({ modalTitle }) => {
     const activeModal = useSelector(({movie: {activeModal}}) => activeModal);

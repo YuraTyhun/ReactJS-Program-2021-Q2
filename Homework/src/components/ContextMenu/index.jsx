@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../components/Button';
+import Button from '../Button';
 import CloseIcon from '../../assets/images/close.svg';
 
 import './ContextMenu.scss';
@@ -11,9 +11,11 @@ const ContextMenu = ({showContextMenu, closeContextMenu, showModal }) => {
     return showContextMenu && (
         <>
             <div className="movie-context-menu">
-                <Button className="movie-context-menu-close-btn" onClick={closeContextMenu}>
-                    <img src={CloseIcon} alt="close" />
-                </Button>
+                <Button 
+                    className="movie-context-menu-close-btn" 
+                    onClick={closeContextMenu}
+                    iconSrc={CloseIcon}
+                    iconAlt="close" />
                 <ul>
                     <li 
                         className="movie-context-menu-item"

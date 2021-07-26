@@ -10,7 +10,7 @@ import MovieTitle from '../../components/MovieTitle';
 import MovieRelease from '../../components/MovieRelease';
 import MovieGenres from '../../components/MovieGenres';
 import ContextMenuIcon from '../../assets/images/context-menu.svg';
-import ContextMenu from '../ContextMenu';
+import ContextMenu from '../../components/ContextMenu';
 
 import './MovieCard.scss';
 
@@ -37,17 +37,19 @@ const MovieCard = ({movieData, movieData: { title, poster_path, release_date, ge
 
     return (
         <div className="movie-card-container" onMouseLeave={handleMouseLeave}>
-            <Button className='movie-card-poster-btn' onClick={handleShowMovieDetails}>
+            <a className='movie-card-poster-btn' onClick={handleShowMovieDetails}>
                 <MoviePoster path={poster_path} title={title} />
-            </Button>
+            </a>
             <div className="movie-card-metadata">
                 <MovieTitle title={title} />
                 <MovieRelease releaseDate={release_date} />
             </div>
             <MovieGenres genres={genres} />
-            <Button className="movie-card-menu-icon" onClick={onToggleMenu}>
-                <img src={ContextMenuIcon} alt="context menu" />
-            </Button>
+            <Button 
+                className="movie-card-menu-icon" 
+                onClick={onToggleMenu}
+                iconSrc={ContextMenuIcon}
+                iconAlt="context menu" />
             <ContextMenu
                 showContextMenu={showContextMenu} 
                 closeContextMenu={onToggleMenu}

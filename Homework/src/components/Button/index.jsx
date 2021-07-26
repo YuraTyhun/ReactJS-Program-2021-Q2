@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({title, className, children, onClick, type, disabled}) => (
+const Button = ({title, className, onClick, type, disabled, iconSrc, iconAlt}) => (
     <button 
       onClick={onClick} 
       type={type} 
       className={className} 
       disabled={disabled}
     >
-      {title}{children}
+      {title}
+      { iconSrc && <img src={iconSrc} alt={iconAlt} /> }
     </button>
 );
 
@@ -18,7 +19,9 @@ Button.propTypes = {
     children: PropTypes.node,
     onClick: PropTypes.func,
     type: PropTypes.string,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    iconSrc: PropTypes.string,
+    iconSrc: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -27,7 +30,9 @@ Button.defaultProps = {
   children: '',
   onClick: () => {},
   type: 'button',
-  disabled: false
+  disabled: false,
+  iconSrc: '',
+  iconAlt: ''
 };
 
 export default Button;

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { editMovie } from '../../../store/actions';
 import { convertData, setValidation } from '../../../util';
-import MovieForm from '../../MovieForm';
+import MovieForm from '../../../components/MovieForm';
 
 const EditMovie = ({ 
     modalTitle, 
