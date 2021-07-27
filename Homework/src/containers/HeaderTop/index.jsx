@@ -25,9 +25,11 @@ const HeaderTop = () => {
             <Logo />
             {detailsMovie ? 
                 (
-                    <Button className="close-movie-details" onClick={handleCloseMovieDetails}>
-                        <img src={SearchIcon} alt="search" />
-                    </Button>
+                    <Button 
+                        className="close-movie-details" 
+                        onClick={handleCloseMovieDetails}
+                        iconSrc={SearchIcon}
+                        iconAlt="search" />
                 ) : ( 
                     <Button className="add-movie-btn" title='+ ADD MOVIE' onClick={handleShowAddModal}/> 
                 )

@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({title, className, children, onClick, type}) => (
-    <button onClick={onClick} type={type} className={className}>{title}{children}</button>
+const Button = ({title, className, onClick, type, disabled, iconSrc, iconAlt}) => (
+    <button 
+      onClick={onClick} 
+      type={type} 
+      className={className} 
+      disabled={disabled}
+    >
+      {title}
+      { iconSrc && <img src={iconSrc} alt={iconAlt} /> }
+    </button>
 );
 
 Button.propTypes = {
@@ -10,7 +18,10 @@ Button.propTypes = {
     title: PropTypes.string,
     children: PropTypes.node,
     onClick: PropTypes.func,
-    type: PropTypes.string
+    type: PropTypes.string,
+    disabled: PropTypes.bool,
+    iconSrc: PropTypes.string,
+    iconSrc: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -18,7 +29,10 @@ Button.defaultProps = {
   title: '',
   children: '',
   onClick: () => {},
-  type: 'button'
+  type: 'button',
+  disabled: false,
+  iconSrc: '',
+  iconAlt: ''
 };
 
 export default Button;

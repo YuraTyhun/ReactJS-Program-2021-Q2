@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FormInput from '../FormInput';
-import Button from '../../components/Button';
-import MultipleSelect from '../../components/MultipleSelect';
+import FormInput from '../../containers/FormInput';
+import Button from '../Button';
+import MultipleSelect from '../MultipleSelect';
 import { formInputsList } from '../../util/constants';
 
 import './MovieForm.scss';
@@ -12,12 +12,16 @@ const MovieForm = ({ formik, isEditMode }) => {
     return (
         <>
             {isEditMode && <FormInput label="MOVIE ID" name="id" isIdField readOnly/>}
-            {formInputsList.map(input => {
-                if(input.fieldName) {
-                   return <MultipleSelect key={input.id} label={input.label} fieldName={input.fieldName} formik={formik}/>
-                }
-                return <FormInput key={input.id} label={input.label} name={input.name} type={input.type} placeholder={input.placeholder}/>
-            })}
+            {formInputsList.map(input => input.fieldName ? 
+                <MultipleSelect key={input.id} label={input.label} fieldName={input.fieldName} formik={formik}/> :
+                <FormInput 
+                    key={input.id} 
+                    label={input.label} 
+                    name={input.name} 
+                    type={input.type} 
+                    placeholder={input.placeholder}
+                    error={formik.errors[input.name]}/>
+            )}
             <div className="modal-window-action">
                 <Button
                     type="reset"
@@ -28,6 +32,7 @@ const MovieForm = ({ formik, isEditMode }) => {
                     type="submit"
                     className="modal-window-action-btn"
                     title="SAVE"
+                    disabled={!formik.isValid}
                 />
             </div>
         </>

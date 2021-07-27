@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchMovie from '../SearchMovie';
+import SearchMovie from '../../containers/SearchMovie';
 
 import './HeaderMain.scss';
 

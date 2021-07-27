@@ -81,6 +81,13 @@
                 background-color: $pink;
                 border: none;
                 color: $white;
+
+                &:disabled {
+                    color: $light-grey;
+                    background-color: transparent;
+                    border: 1px solid $light-grey;
+                    cursor: default;
+                }
             }
         }
 

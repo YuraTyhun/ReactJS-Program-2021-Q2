@@ -49,9 +49,8 @@ const ModalWindow = () => {
                     <Button
                         className="modal-window-close-btn"
                         onClick={handleCloseModal}
-                    >
-                        <img src={CloseIcon} alt="close" />
-                    </Button>
+                        iconSrc={CloseIcon}
+                        iconAlt="close" />
                     <div className="modal-window-body">
                         {activeMovie && <DeleteMovie title="DELETE MOVIE" movieId={activeMovie.id} />}
                         {activeMovie && <EditMovie modalTitle="EDIT MOVIE" movie={activeMovie} /> }

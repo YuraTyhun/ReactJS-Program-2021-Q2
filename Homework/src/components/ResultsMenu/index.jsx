@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ResultsFilter from '../ResultsFilter';
-import ResultsSort from '../ResultsSort';
+import ResultsFilter from '../../containers/ResultsFilter';
+import ResultsSort from '../../containers/ResultsSort';
 
 import './ResultsMenu.scss';
 

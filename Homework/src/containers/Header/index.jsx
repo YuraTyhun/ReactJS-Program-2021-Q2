@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import HeaderTop from '../HeaderTop';
-import HeaderMain from '../HeaderMain';
+import HeaderMain from '../../components/HeaderMain';
 
 import './Header.scss';
 

@@ -46,6 +46,7 @@ const MultipleSelect = ({ fieldName, formik, label }) => {
                     <TextField {...params} variant="outlined" placeholder="Select genre" />
                 )}
             />
+            <span className="form-input-error">{formik.errors.genres}</span>
         </div>
     )
 }
