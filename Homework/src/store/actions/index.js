@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { buildQueryString } from '../../util';
 
 import { BASE_URL } from '../../util/constants';
 
@@ -9,7 +10,9 @@ import {
     SET_SORT_BY,
     SET_FILTER,
     CLOSE_MOVIE_DETAILS,
-    GET_MOVIES_SUCCESS
+    GET_MOVIES_SUCCESS,
+    GET_MOVIE_BY_ID_SUCCESS,
+    SET_SEARCH_VALUE
 } from './actionTypes';
 
 export const openModal = (activeModal, activeMovie) => {
@@ -52,17 +55,42 @@ export const setFilter = (filter) => {
     })
 }
 
+export const setSearchValue = (value) => {
+    return ({
+        type: SET_SEARCH_VALUE,
+        payload: value
+    })
+}
+
 export const getMoviesSuccess = (movies) => ({
     type: GET_MOVIES_SUCCESS,
     payload: movies
 });
 
-export const getMovies = () => (dispatch) => {
+export const getMovieByIdSuccess = (movie) => ({
+    type: GET_MOVIE_BY_ID_SUCCESS,
+    payload: movie
+});
+
+export const getMovies = () => (dispatch, getState) => {
+    const {filter, sortBy, search} = getState().movie;
     return axios
-        .get(`${BASE_URL}?filter=&limit=30&sortBy=release_date&sortOrder=desc&search=&searchBy=title`)
+        .get(`${BASE_URL}${buildQueryString({filter, sortBy, search})}`)
         .then(response => {
             console.log(response);
             dispatch(getMoviesSuccess(response.data))
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+}
+
+export const getMovieById = (id) => (dispatch) => {
+    return axios
+        .get(`${BASE_URL}/${id}`)
+        .then(response => {
+            console.log(response);
+            dispatch(getMovieByIdSuccess(response.data))
         })
         .catch((error) => {
             console.log(error.message);
@@ -106,4 +134,10 @@ export const deleteMovie = (id) => (dispatch) => {
         .catch((error) => {
             console.log(error.message);
         });
+}
+
+export const updateStateFromUrlParams = urlParams => dispatch => {
+    if(urlParams.get('sortBy')) dispatch( setSortBy(urlParams.get('sortBy')));
+    if(urlParams.get('filter') || urlParams.get('filter') === '') dispatch( setFilter(urlParams.get('filter')));
+    if(urlParams.get('search') || urlParams.get('search') === '') dispatch( setSearchValue(urlParams.get('search')));
 }

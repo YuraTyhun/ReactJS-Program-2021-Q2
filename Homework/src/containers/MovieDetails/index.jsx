@@ -1,38 +1,40 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
 
 import MoviePoster from "../../components/MoviePoster";
 import MovieGenres from "../../components/MovieGenres";
+import { getMovieById } from "../../store/actions";
+import { getYear } from '../../util/index';
 
 import './MovieDetails.scss';
 
 const MovieDetails = () => {
-    const { 
-        poster_path,
-        title,
-        vote_average,
-        genres,
-        release_date,
-        runtime,
-        overview 
-    } = useSelector(({ movie: { detailsMovie } }) => detailsMovie);
+    const detailsMovie = useSelector(({ movie: { detailsMovie } }) => detailsMovie);
 
-    const releaseDate = new Date(release_date).getFullYear();
+    const dispatch = useDispatch();
+    const {id} = useParams();
 
-    return (
+    useEffect(() => {
+        if(!detailsMovie) {
+            dispatch(getMovieById(id));
+        }
+    }, [detailsMovie, dispatch, id]);
+
+    return detailsMovie && (
         <div className="movie-details-container">
-            <MoviePoster path={poster_path} />
+            <MoviePoster path={detailsMovie.poster_path} />
             <div className="movie-details-main">
                 <div className="movie-details-header">
-                    <span className="movie-details-header-title">{title}</span>
-                    <span className="movie-details-header-rating">{(vote_average || 0).toFixed(1)}</span>
+                    <span className="movie-details-header-title">{detailsMovie.title}</span>
+                    <span className="movie-details-header-rating">{(detailsMovie.vote_average || 0).toFixed(1)}</span>
                 </div>
-                <MovieGenres genres={genres} />
+                <MovieGenres genres={detailsMovie.genres} />
                 <div className="movie-details-release-and-runtime">
-                    <div>{releaseDate}</div>
-                    <div>{runtime ? runtime + 'min' : ''}</div>
+                    <div>{getYear(detailsMovie.release_date)}</div>
+                    <div>{detailsMovie.runtime ? detailsMovie.runtime + 'min' : ''}</div>
                 </div>
-                <div className="movie-details-overview">{overview}</div>
+                <div className="movie-details-overview">{detailsMovie.overview}</div>
             </div>
         </div>
     )

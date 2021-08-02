@@ -5,7 +5,9 @@ import {
     CLOSE_MOVIE_DETAILS,
     SET_SORT_BY,
     SET_FILTER,
-    GET_MOVIES_SUCCESS
+    GET_MOVIES_SUCCESS,
+    GET_MOVIE_BY_ID_SUCCESS,
+    SET_SEARCH_VALUE
 } from '../actions/actionTypes';
 
 export const initialState = {
@@ -15,6 +17,7 @@ export const initialState = {
     totalAmount: null,
     sortBy: 'release_date',
     filter: '',
+    search: '',
     movies: []
 };
 
@@ -52,11 +55,21 @@ const movie = (state = initialState, action) => {
                 ...state,
                 filter: action.payload
             };
+        case SET_SEARCH_VALUE:
+            return {
+                ...state,
+                search: action.payload
+            };
         case GET_MOVIES_SUCCESS:
             return {
                 ...state,
                 movies: action.payload.data,
                 totalAmount: action.payload.totalAmount
+            };
+        case GET_MOVIE_BY_ID_SUCCESS:
+            return {
+                ...state,
+                detailsMovie: action.payload
             };
 
         default:

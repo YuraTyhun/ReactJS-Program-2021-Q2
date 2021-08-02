@@ -1,8 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import { useHistory, useParams } from 'react-router';
 
 import { setFilter } from '../../store/actions';
 import ListItem from '../../components/ListItem';
+import { buildQueryString } from '../../util';
 
 import './ResultsFilter.scss';
 
@@ -16,11 +18,18 @@ const genres = [
 ];
 
 const ResultsFilter = () => {
-    const filter = useSelector(({movie: {filter}}) => filter);
+    const {id} = useParams();
+    const query = useSelector(({ movie: { sortBy, filter, search } }) => ({sortBy, filter, search}));
     const dispatch = useDispatch();
+    const history = useHistory()
 
     const handleSetFilter = (filter) => {
-        dispatch(setFilter(filter));
+        id 
+            ? dispatch(setFilter(filter))
+            : history.push({
+                pathname: '/search',
+                search: buildQueryString({...query, filter})
+            });
     }
 
     return (
@@ -30,7 +39,7 @@ const ResultsFilter = () => {
                     <ListItem 
                         key={genre.id} 
                         title={genre.title}
-                        isActive={genre.value === filter} 
+                        isActive={genre.value === query.filter} 
                         setFilter={() => handleSetFilter(genre.value)}/>
                 ))}
             </ul>

@@ -8,12 +8,14 @@ module.exports = {
     devtool: 'inline-source-map',
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
     devServer: {
         hot: true,
         open: true,
-        port: 9000
+        port: 9000,
+        historyApiFallback: true
     },
     plugins: [
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, '..', 'src/index.html') }),

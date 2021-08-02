@@ -1,6 +1,7 @@
 @import '../../assets/styles/variables.scss';
 
 .main-content {
+    flex: 1 0 auto;
     background-color: $dark-grey;
     padding: 5px 50px;
 }
