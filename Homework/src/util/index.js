@@ -23,6 +23,10 @@ export const convertData = (movie) => {
     }
 }
 
+export const formatRating = rating => (rating || 0).toFixed(1);
+
+export const formatRuntime = runtime => runtime ? `${runtime} min` : '';
+
 export const getYear = (date) => new Date(date).getFullYear(); 
 
 export const buildQueryString = ({

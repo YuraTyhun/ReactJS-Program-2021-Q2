@@ -15,11 +15,14 @@ const MainContent = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
+    const filter = searchParams.get('filter'),
+          sortBy = searchParams.get('sortBy'),
+          search = searchParams.get('search');
 
     useEffect(() => {
         dispatch(updateStateFromUrlParams(searchParams));
         dispatch(getMovies());
-      }, [dispatch, searchParams.get('filter'), searchParams.get('sortBy'), searchParams.get('search')]);
+      }, [dispatch, filter, sortBy, search]);
 
     return !activeModal && (
         <main className="main-content">

@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import MoviePoster from "../../components/MoviePoster";
 import MovieGenres from "../../components/MovieGenres";
 import { getMovieById } from "../../store/actions";
-import { getYear } from '../../util/index';
+import { getYear, formatRating, formatRuntime } from '../../util/index';
 
 import './MovieDetails.scss';
 
@@ -27,12 +27,12 @@ const MovieDetails = () => {
             <div className="movie-details-main">
                 <div className="movie-details-header">
                     <span className="movie-details-header-title">{detailsMovie.title}</span>
-                    <span className="movie-details-header-rating">{(detailsMovie.vote_average || 0).toFixed(1)}</span>
+                    <span className="movie-details-header-rating">{formatRating(detailsMovie.vote_average)}</span>
                 </div>
                 <MovieGenres genres={detailsMovie.genres} />
                 <div className="movie-details-release-and-runtime">
                     <div>{getYear(detailsMovie.release_date)}</div>
-                    <div>{detailsMovie.runtime ? detailsMovie.runtime + 'min' : ''}</div>
+                    <div>{formatRuntime(detailsMovie.runtime)}</div>
                 </div>
                 <div className="movie-details-overview">{detailsMovie.overview}</div>
             </div>
