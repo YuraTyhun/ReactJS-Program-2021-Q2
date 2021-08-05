@@ -1,0 +1,17 @@
+@import '../../assets/styles/variables.scss';
+
+.no-movies-found {
+    &-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1 0 auto;
+        background-color: $dark-grey;
+    }
+    
+    &-title {
+        color: $white;
+        font-weight: normal;
+        font-size: 40px;
+    }
+}

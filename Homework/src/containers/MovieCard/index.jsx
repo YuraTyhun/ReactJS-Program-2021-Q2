@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { openModal, showMovieDetails } from '../../store/actions';
 
@@ -14,7 +15,7 @@ import ContextMenu from '../../components/ContextMenu';
 
 import './MovieCard.scss';
 
-const MovieCard = ({movieData, movieData: { title, poster_path, release_date, genres } }) => {
+const MovieCard = ({movieData, movieData: { id, title, poster_path, release_date, genres } }) => {
     const [showContextMenu, setShowContextMenu] = useState(false);
     const dispatch = useDispatch();
 
@@ -37,9 +38,9 @@ const MovieCard = ({movieData, movieData: { title, poster_path, release_date, ge
 
     return (
         <div className="movie-card-container" onMouseLeave={handleMouseLeave}>
-            <a className='movie-card-poster-btn' onClick={handleShowMovieDetails}>
+            <Link to={`/film/${id}`} className='movie-card-poster-btn' onClick={handleShowMovieDetails}>
                 <MoviePoster path={poster_path} title={title} />
-            </a>
+            </Link>
             <div className="movie-card-metadata">
                 <MovieTitle title={title} />
                 <MovieRelease releaseDate={release_date} />

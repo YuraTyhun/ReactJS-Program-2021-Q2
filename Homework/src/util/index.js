@@ -23,7 +23,15 @@ export const convertData = (movie) => {
     }
 }
 
-const getYear = (date) => new Date(date).getFullYear(); 
+export const formatRating = rating => (rating || 0).toFixed(1);
+
+export const formatRuntime = runtime => runtime ? `${runtime} min` : '';
+
+export const getYear = (date) => new Date(date).getFullYear(); 
+
+export const buildQueryString = ({
+    sortBy, search, filter
+}) => `?sortBy=${sortBy}&sortOrder=desc&filter=${filter}&search=${search}&searchBy=title&limit=30` 
 
 export const setValidation = () => Yup.object().shape({
     title: Yup.string().required('Fill in the movie title'),
