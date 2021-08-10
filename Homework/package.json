@@ -5,6 +5,7 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.config.js"
   },
@@ -31,6 +32,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@types/jest": "^26.0.24",
     "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
@@ -40,9 +42,11 @@
     "html-webpack-plugin": "^5.3.1",
     "jest": "^27.0.4",
     "mini-css-extract-plugin": "^1.6.0",
+    "moxios": "^0.4.0",
     "node-sass": "^6.0.0",
     "path": "^0.12.7",
     "react-test-renderer": "^17.0.2",
+    "redux-mock-store": "^1.5.4",
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.38.1",
@@ -52,6 +56,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|svg)$": "<rootDir>/src/util/fileMock.js",
       "\\.(css|scss)$": "babel-jest"
     }
   }

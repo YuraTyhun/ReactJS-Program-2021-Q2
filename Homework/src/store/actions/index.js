@@ -62,9 +62,12 @@ export const setSearchValue = (value) => {
     })
 }
 
-export const getMoviesSuccess = (movies) => ({
+export const getMoviesSuccess = (response) => ({
     type: GET_MOVIES_SUCCESS,
-    payload: movies
+    payload: {
+        data: response.data,
+        totalAmount: response.totalAmount
+    }
 });
 
 export const getMovieByIdSuccess = (movie) => ({
@@ -73,7 +76,7 @@ export const getMovieByIdSuccess = (movie) => ({
 });
 
 export const getMovies = () => (dispatch, getState) => {
-    const {filter, sortBy, search} = getState().movie;
+    const {filter, sortBy, search} = getState().movie || {filter: '', sortBy: '', search: ''};
     return axios
         .get(`${BASE_URL}${buildQueryString({filter, sortBy, search})}`)
         .then(response => {
@@ -103,7 +106,6 @@ export const addMovie = (data) => (dispatch) => {
         .post(BASE_URL, data)
         .then(() => {
             dispatch(closeModal());
-            dispatch(getMovies());
         })
         .catch((error) => {
             console.log(error.message);
@@ -116,7 +118,6 @@ export const editMovie = (data) => (dispatch) => {
         .put(BASE_URL, data)
         .then(() => {
             dispatch(closeModal());
-            dispatch(getMovies());
         })
         .catch((error) => {
             console.log(error.message);
@@ -129,7 +130,6 @@ export const deleteMovie = (id) => (dispatch) => {
         .delete(`${BASE_URL}/${id}`)
         .then(() => {
             dispatch(closeModal());
-            dispatch(getMovies());
         })
         .catch((error) => {
             console.log(error.message);

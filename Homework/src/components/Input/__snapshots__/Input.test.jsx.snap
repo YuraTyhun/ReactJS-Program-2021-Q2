@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders correctly 1`] = `
+<input
+  className="search-input-field"
+  onChange={[Function]}
+  placeholder="What do you want to watch?"
+  type="text"
+  value="test value"
+/>
+`;

@@ -22,7 +22,7 @@ const MainContent = () => {
     useEffect(() => {
         dispatch(updateStateFromUrlParams(searchParams));
         dispatch(getMovies());
-      }, [dispatch, filter, sortBy, search]);
+      }, [dispatch, filter, sortBy, search, searchParams]);
 
     return !activeModal && (
         <main className="main-content">
