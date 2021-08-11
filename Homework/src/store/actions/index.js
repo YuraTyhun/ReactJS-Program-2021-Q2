@@ -76,7 +76,7 @@ export const getMovieByIdSuccess = (movie) => ({
 });
 
 export const getMovies = () => (dispatch, getState) => {
-    const {filter, sortBy, search} = getState().movie || {filter: '', sortBy: '', search: ''};
+    const {filter, sortBy, search} = getState().movie;
     return axios
         .get(`${BASE_URL}${buildQueryString({filter, sortBy, search})}`)
         .then(response => {

@@ -141,7 +141,12 @@ describe('Movie async actions', () => {
     });
 
     it('getMovies', () => {
-        const store = mockStore(initialState); 
+        const initState = {
+            movie: {
+                ...initialState
+            }
+        };
+        const store = mockStore(initState);
         const expectedAction = [{
             type: GET_MOVIES_SUCCESS,
             payload: {

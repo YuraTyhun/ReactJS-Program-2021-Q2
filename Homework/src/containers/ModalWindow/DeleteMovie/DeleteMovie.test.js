@@ -15,7 +15,7 @@ it('renders deleteMovie form correctly', () => {
     const store = mockStore(initState);
     const deleteMovie = renderer.create(
         <Provider store={store}>
-            <DeleteMovie title="DELETE MOVIE" movieId="5"/>
+            <DeleteMovie title="DELETE MOVIE" movieId={5} />
         </Provider>
     ).toJSON();
 
