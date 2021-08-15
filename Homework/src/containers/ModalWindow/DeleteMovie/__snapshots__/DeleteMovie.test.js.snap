@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders deleteMovie form correctly 1`] = `
+Array [
+  <h1
+    className="modal-window-title"
+  >
+    DELETE MOVIE
+  </h1>,
+  <h3
+    className="modal-window-content"
+  >
+    Are you sure you want to delete this movie?
+  </h3>,
+  <div
+    className="modal-window-action"
+  >
+    <button
+      className="modal-window-action-btn"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      CONFIRM
+      
+    </button>
+  </div>,
+]
+`;

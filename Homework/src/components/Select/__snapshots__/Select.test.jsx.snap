@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select renders correctly 1`] = `
+<div
+  className="select-sort"
+>
+  <select
+    onChange={[Function]}
+  >
+    <option
+      value="option 1"
+    >
+      Test option 1
+    </option>
+    <option
+      value="option 2"
+    >
+      Test option 2
+    </option>
+    <option
+      value="option 3"
+    >
+      Test option 3
+    </option>
+  </select>
+</div>
+`;

@@ -2,12 +2,6 @@ import * as Yup from 'yup';
 import emptyImage from '../assets/images/noimg.jpg';
 import { URL_REGEX } from './constants';
 
-export const sortList = (arr = [], sortBy) => {
-    return sortBy === 'release_date' ?
-        arr.sort((a,b) => getYear(b[sortBy]) - getYear(a[sortBy])) :
-        arr.sort((a,b) => b[sortBy] - a[sortBy]);  
-}
-
 export const handleImgError = (event) => {
     event.target.src = emptyImage;
 }

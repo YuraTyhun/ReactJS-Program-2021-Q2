@@ -39,3 +39,18 @@ export const formInputsList = [
 export const BASE_URL = 'http://localhost:4000/movies';
 
 export const URL_REGEX = /((https?):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#-]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/;
+
+export const mockMovie = {
+    id: 1,
+    title: 'Avengers: War of Infinity',
+    budget: 250000000,
+    genres: ['Action', 'Adventure'],
+    overview: 'Avengers: Infinity War is a 2018 American superhero film.',
+    poster_path: '',
+    release_date: '2018-04-28',
+    revenue: 1850000000,
+    runtime: 155,
+    tagline: 'Tagline',
+    vote_average: 8.5,
+    vote_count: 175896
+};

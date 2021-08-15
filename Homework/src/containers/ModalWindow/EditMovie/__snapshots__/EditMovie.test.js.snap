@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders addMovie form correctly 1`] = `
+<form
+  action="#"
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <h1
+    className="modal-window-title"
+  >
+    EDIT MOVIE
+  </h1>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="id"
+    >
+      MOVIE ID
+    </label>
+    <input
+      className="form-input-field id-field"
+      name="id"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder=""
+      readOnly={true}
+      value={1}
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="title"
+    >
+      TITLE
+    </label>
+    <input
+      className="form-input-field"
+      name="title"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Movie title here"
+      type="text"
+      value="Avengers: War of Infinity"
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="release_date"
+    >
+      RELEASE DATE
+    </label>
+    <input
+      className="form-input-field"
+      name="release_date"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Select Date"
+      type="date"
+      value="2018-04-28"
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="poster_path"
+    >
+      MOVIE URL
+    </label>
+    <input
+      className="form-input-field"
+      name="poster_path"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Movie URL here"
+      type="text"
+      value=""
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="genres"
+    >
+      GENRE
+    </label>
+    <div
+      aria-expanded={false}
+      aria-owns={null}
+      className="MuiAutocomplete-root form-input-field MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon"
+      name="genres"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      role="combobox"
+    >
+      <div
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+      >
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+          onClick={[Function]}
+        >
+          <div
+            className="MuiChip-root MuiAutocomplete-tag MuiChip-deletable"
+            data-tag-index={0}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            <span
+              className="MuiChip-label"
+            >
+              Action
+            </span>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiChip-deleteIcon"
+              focusable="false"
+              onClick={[Function]}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+              />
+            </svg>
+          </div>
+          <div
+            className="MuiChip-root MuiAutocomplete-tag MuiChip-deletable"
+            data-tag-index={1}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            <span
+              className="MuiChip-label"
+            >
+              Adventure
+            </span>
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root MuiChip-deleteIcon"
+              focusable="false"
+              onClick={[Function]}
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+              />
+            </svg>
+          </div>
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls={null}
+            aria-invalid={false}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoFocus={false}
+            className="MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+            disabled={false}
+            id="genres"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            placeholder="Select genre"
+            required={false}
+            spellCheck="false"
+            type="text"
+            value=""
+          />
+          <div
+            className="MuiAutocomplete-endAdornment"
+          >
+            <button
+              aria-label="Clear"
+              className="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-clearIndicator MuiAutocomplete-clearIndicatorDirty"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={-1}
+              title="Clear"
+              type="button"
+            >
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <button
+              aria-label="Open"
+              className="MuiButtonBase-root MuiIconButton-root MuiAutocomplete-popupIndicator"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={-1}
+              title="Open"
+              type="button"
+            >
+              <span
+                className="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden={true}
+                  className="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
+          >
+            <legend
+              className="PrivateNotchedOutline-legend-2"
+              style={
+                Object {
+                  "width": 0.01,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <span
+      className="form-input-error"
+    />
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="overview"
+    >
+      OVERVIEW
+    </label>
+    <input
+      className="form-input-field"
+      name="overview"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Overview here"
+      type="text"
+      value="Avengers: Infinity War is a 2018 American superhero film."
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="runtime"
+    >
+      RUNTIME
+    </label>
+    <input
+      className="form-input-field"
+      name="runtime"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Runtime here"
+      type="text"
+      value={155}
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="budget"
+    >
+      BUDGET
+    </label>
+    <input
+      className="form-input-field"
+      name="budget"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Budget here"
+      type="text"
+      value={250000000}
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="revenue"
+    >
+      REVENUE
+    </label>
+    <input
+      className="form-input-field"
+      name="revenue"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Revenue here"
+      type="text"
+      value={1850000000}
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="tagline"
+    >
+      TAGLINE
+    </label>
+    <input
+      className="form-input-field"
+      name="tagline"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Tagline here"
+      type="text"
+      value="Tagline"
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="vote_average"
+    >
+      VOTE AVERAGE
+    </label>
+    <input
+      className="form-input-field"
+      name="vote_average"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Vote average here"
+      type="text"
+      value={8.5}
+    />
+    
+  </div>
+  <div
+    className="form-input-container"
+  >
+    <label
+      className="form-input-label"
+      htmlFor="vote_count"
+    >
+      VOTE COUNT
+    </label>
+    <input
+      className="form-input-field"
+      name="vote_count"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Vote count here"
+      type="text"
+      value={175896}
+    />
+    
+  </div>
+  <div
+    className="modal-window-action"
+  >
+    <button
+      className="modal-window-action-btn"
+      disabled={false}
+      onClick={[Function]}
+      type="reset"
+    >
+      RESET
+      
+    </button>
+    <button
+      className="modal-window-action-btn"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    >
+      SAVE
+      
+    </button>
+  </div>
+</form>
+`;
