@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 
 import './Input.scss';
 
-const Input = ({value, onChange}) => (
-    <input 
-        type="text"
-        className="search-input-field"
-        placeholder="What do you want to watch?"
-        value={value}
-        onChange={onChange} />
+const Input = ({ onChange }) => (
+  <input
+    type="text"
+    className="search-input-field"
+    placeholder="What do you want to watch?"
+    onChange={onChange}
+  />
 );
 
 Input.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
-}
+  onChange: PropTypes.func.isRequired
+};
 
 export default Input;
-

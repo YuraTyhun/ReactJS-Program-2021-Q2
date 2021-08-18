@@ -5,20 +5,19 @@ import renderer from 'react-test-renderer';
 import AddMovie from './index';
 
 it('renders addMovie form correctly', () => {
-    const mockStore = configureMockStore();
-    const initState = {
-        movie: {
-            activeModal: 'add'
-        }
-    };
-    
-    const store = mockStore(initState);
-    const addMovie = renderer.create(
-        <Provider store={store}>
-            <AddMovie modalTitle="ADD MOVIE"/>
-        </Provider>
-    ).toJSON();
+  const mockStore = configureMockStore();
+  const initState = {
+    movie: {
+      activeModal: 'add'
+    }
+  };
 
-    expect(addMovie).toMatchSnapshot();
+  const store = mockStore(initState);
+  const addMovie = renderer.create(
+    <Provider store={store}>
+      <AddMovie modalTitle="ADD MOVIE" />
+    </Provider>
+  ).toJSON();
 
+  expect(addMovie).toMatchSnapshot();
 });

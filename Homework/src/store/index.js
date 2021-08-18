@@ -4,6 +4,6 @@ import thunk from 'redux-thunk';
 import allReducers from './reducers';
 
 export default createStore(
-    allReducers,
-    applyMiddleware(thunk)
+  allReducers,
+  applyMiddleware(thunk)
 );
