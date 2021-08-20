@@ -10,9 +10,8 @@ const ResultsCount = () => {
     <div className="results-count-container">
       <span>
         {totalAmountValue}
-        {' '}
       </span>
-      <span>movies found</span>
+      <span> movies found</span>
     </div>
   );
 };

@@ -11,11 +11,6 @@ class ErrorBoundary extends React.Component {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
-    // eslint-disable-next-line no-console
-    console.log('Error', error, errorInfo);
-  }
-
   render() {
     const { hasError } = this.state;
     const { children } = this.props;

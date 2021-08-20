@@ -7,7 +7,6 @@ import CloseIcon from '../../assets/images/close.svg';
 import './ContextMenu.scss';
 
 const ContextMenu = ({ showContextMenu, closeContextMenu, showModal }) => showContextMenu && (
-<>
   <div className="movie-context-menu">
     <Button
       className="movie-context-menu-close-btn"
@@ -32,8 +31,6 @@ const ContextMenu = ({ showContextMenu, closeContextMenu, showModal }) => showCo
       </li>
     </ul>
   </div>
-</>
-
 );
 
 ContextMenu.propTypes = {

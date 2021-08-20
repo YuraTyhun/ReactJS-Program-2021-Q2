@@ -3,8 +3,7 @@ import emptyImage from '../assets/images/noimg.jpg';
 import { URL_REGEX } from './constants';
 
 export const handleImgError = (event) => {
-  // eslint-disable-next-line no-param-reassign
-  event.target.src = emptyImage;
+  event.target.setAttribute('src', emptyImage);
 };
 
 export const convertData = (movie) => ({
