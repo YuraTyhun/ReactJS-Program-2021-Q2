@@ -6,10 +6,10 @@ import ResultsSort from '../../containers/ResultsSort';
 import './ResultsMenu.scss';
 
 const ResultsMenu = () => (
-    <div className="results-menu-container">
-        <ResultsFilter />
-        <ResultsSort />
-    </div>
+  <div className="results-menu-container">
+    <ResultsFilter />
+    <ResultsSort />
+  </div>
 );
 
 export default ResultsMenu;

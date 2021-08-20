@@ -1,35 +1,35 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Provider } from 'react-redux';
-import { 
-	BrowserRouter as Router, Route, Switch
+import {
+  BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 
 import ErrorBoundary from '../ErrorBoundary';
-import NotFoundPage from '../../components/NotFoundPage';
-import StartPage from '../../components/StartPage';
-import SearchPage from '../../components/SearchPage';
-import DetailsPage from '../../components/DetailsPage';
 
 import store from '../../store';
 
 import './App.scss';
 
-const App = () => {
+const StartPage = React.lazy(() => import('../../components/StartPage'));
+const SearchPage = React.lazy(() => import('../../components/SearchPage'));
+const DetailsPage = React.lazy(() => import('../../components/DetailsPage'));
+const NotFoundPage = React.lazy(() => import('../../components/NotFoundPage'));
 
-	return (
-		<Provider store={store}>
-			<ErrorBoundary>
-				<Router>
-					<Switch>
-						<Route exact path="/" component={StartPage}/>
-						<Route exact path="/search" component={SearchPage}/>
-						<Route exact path="/film/:id" component={DetailsPage}/>
-						<Route path="*" component={NotFoundPage}/>
-					</Switch>
-				</Router>
-			</ErrorBoundary>
-		</Provider>
-	);
-}
+const App = () => (
+  <Provider store={store}>
+    <ErrorBoundary>
+      <Suspense fallback={<span>Loading...</span>}>
+        <Router>
+          <Switch>
+            <Route exact path="/" render={() => <StartPage />} />
+            <Route exact path="/search" render={() => <SearchPage />} />
+            <Route exact path="/film/:id" render={() => <DetailsPage />} />
+            <Route path="*" render={() => <NotFoundPage />} />
+          </Switch>
+        </Router>
+      </Suspense>
+    </ErrorBoundary>
+  </Provider>
+);
 
 export default App;

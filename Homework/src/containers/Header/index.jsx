@@ -7,11 +7,11 @@ import HeaderMain from '../../components/HeaderMain';
 import './Header.scss';
 
 const Header = () => {
-  const detailsMovie = useSelector(({movie: {detailsMovie}}) => detailsMovie);
+  const detailsMovieData = useSelector(({ movie: { detailsMovie } }) => detailsMovie);
 
-  return !detailsMovie && (
-  <header className='header-container'>
-    <div className='blur-filter'>
+  return !detailsMovieData && (
+  <header className="header-container">
+    <div className="blur-filter">
       <HeaderTop />
       <HeaderMain />
     </div>

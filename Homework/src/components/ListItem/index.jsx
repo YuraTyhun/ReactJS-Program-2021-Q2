@@ -4,22 +4,21 @@ import classNames from 'classnames';
 
 import './ListItem.scss';
 
-const ListItem = ({ title, isActive, setFilter }) => { 
-    const itemClasses = classNames({
-        'list-item': true,
-        'active': isActive
-    })
+const ListItem = ({ title, isActive, setFilter }) => {
+  const itemClasses = classNames({
+    'list-item': true,
+    active: isActive
+  });
 
-    return (
-        <li className={itemClasses} onClick={setFilter}>{title}</li>
-    );
-}
+  return (
+    <li className={itemClasses} onClick={setFilter} role="presentation">{title}</li>
+  );
+};
 
 ListItem.propTypes = {
-    title: PropTypes.string.isRequired,
-    isActive: PropTypes.bool.isRequired,
-    setFilter: PropTypes.func.isRequired
+  title: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  setFilter: PropTypes.func.isRequired
 };
 
 export default ListItem;
-

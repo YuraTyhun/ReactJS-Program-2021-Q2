@@ -5,18 +5,17 @@ import { handleImgError } from '../../util';
 
 import './MoviePoster.scss';
 
-const MoviePoster = ({path, title}) => (
-    <img className="movie-card-poster" onError={handleImgError} src={path} alt={title} />
+const MoviePoster = ({ path, title }) => (
+  <img className="movie-card-poster" onError={handleImgError} src={path} alt={title} />
 );
 
 MoviePoster.propTypes = {
-    path: PropTypes.string.isRequired,
-    title: PropTypes.string
+  path: PropTypes.string.isRequired,
+  title: PropTypes.string
 };
 
 MoviePoster.defaultProps = {
-    path: '',
-    title: ''
-}
+  title: ''
+};
 
 export default MoviePoster;

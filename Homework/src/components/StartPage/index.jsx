@@ -5,12 +5,13 @@ import Footer from '../Footer';
 import NoMoviesFound from '../NoMovieFound';
 
 const StartPage = () => (
-    <>
-        <Header />
-        <ModalWindow />
-        <NoMoviesFound />
-        <Footer />
-    </>
+  // PATTERN: Use Fragments to avoid additional HTML element wrappers
+  <>
+    <Header />
+    <ModalWindow />
+    <NoMoviesFound />
+    <Footer />
+  </>
 );
 
 export default StartPage;

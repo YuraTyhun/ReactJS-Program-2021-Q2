@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
@@ -12,43 +13,50 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const MultipleSelect = ({ fieldName, formik, label }) => {
+  const handleChange = (e, value) => {
+    formik.setFieldValue(fieldName, value);
+  };
 
-    const handleChange = (e, value) => {
-        formik.setFieldValue(fieldName, value);
-    }
-
-    return (
-        <div className="form-input-container">
-            <label htmlFor={fieldName} className="form-input-label">{label}</label>
-            <Autocomplete
-                multiple
-                name={fieldName}
-                id={fieldName}
-                options={genres}
-                value={formik.values.genres}
-                className="form-input-field"
-                disableCloseOnSelect
-                getOptionLabel={(name) => name}
-                getOptionSelected={(option, value) => option === value}
-                renderOption={(genre, { selected }) => (
-                    <React.Fragment>
-                        <Checkbox
-                            icon={icon}
-                            checkedIcon={checkedIcon}
-                            style={{ marginRight: 8 }}
-                            checked={selected}
-                        />
-                        {genre}
-                    </React.Fragment>
-                )}
-                onChange={handleChange}
-                renderInput={(params) => (
-                    <TextField {...params} variant="outlined" placeholder="Select genre" />
-                )}
+  return (
+    <div className="form-input-container">
+      <label htmlFor={fieldName} className="form-input-label">{label}</label>
+      <Autocomplete
+        multiple
+        name={fieldName}
+        id={fieldName}
+        options={genres}
+        value={formik.values.genres}
+        className="form-input-field"
+        disableCloseOnSelect
+        getOptionLabel={(name) => name}
+        getOptionSelected={(option, value) => option === value}
+        renderOption={(genre, { selected }) => (
+          <>
+            <Checkbox
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8 }}
+              checked={selected}
             />
-            <span className="form-input-error">{formik.errors.genres}</span>
-        </div>
-    )
-}
+            {genre}
+          </>
+        )}
+        // PATTERN: Avoid Inline Function Definition in the Render Function
+        onChange={handleChange}
+        renderInput={(params) => (
+          // PATTERN: Spreading props on DOM elements
+          <TextField {...params} variant="outlined" placeholder="Select genre" />
+        )}
+      />
+      <span className="form-input-error">{formik.errors.genres}</span>
+    </div>
+  );
+};
+
+MultipleSelect.propTypes = {
+  fieldName: PropTypes.string.isRequired,
+  formik: PropTypes.instanceOf(Object).isRequired,
+  label: PropTypes.string.isRequired
+};
 
 export default MultipleSelect;
