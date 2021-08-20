@@ -18,5 +18,4 @@ const MoviesList = () => {
   );
 };
 
-// PATTERN: Memoize React Components
-export default React.memo(MoviesList);
+export default MoviesList;
